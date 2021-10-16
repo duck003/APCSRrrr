@@ -1,0 +1,19 @@
+rows, cols, cops = [int(x) for x in input().split()]
+
+n = []
+c = []
+
+for i in range (rows):
+    n.append([int(x) for x in input().split()])
+
+c = [int(x) for x in input().split()]
+
+for x in c:
+    if x == 1:
+        n.reverse()
+    else:   
+       pass
+    
+print(rows,cols)
+for i in range(rows):
+    print(*n[i])
