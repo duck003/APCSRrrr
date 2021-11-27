@@ -4,27 +4,47 @@ z = int(input())
 
 class Node():
 
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.is_root = True
         self.children:List[Node] = []
+        self.height = 0
+    
 
-x:List[Node] = []
+tree:List[Node] = []
 
 for i in range(z):
-    x.append(Node())
+    tree.append(Node(i+1))
 
 for i in range(z):
     a = [int(x) for x in input().split()]
     if a[0] != 0:
         a = a[1:]
         for j in range(len(a)):
-           x[i].children.append(x[a[j]-1])
+           tree[i].children.append(tree[a[j]-1])
 
-for node in x:
+for node in tree:
     for child in node.children:
         child.is_root = False
+root = None
 
-for i in range(len(x)): 
-    if x[i].is_root == True:
-        print(i+1) 
+for node in tree: 
+    if node.is_root:
+        root = node
+        print(root.name)
+         
     
+def dfs(node: Node):
+    for child in node.children:
+        dfs(child)
+        
+    if node.children:
+        node.height = 1+max([child.height for child in node.children])
+
+dfs(root)
+ 
+
+s = 0 
+for node in tree:
+    s += node.height
+print(s)
