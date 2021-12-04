@@ -5,7 +5,7 @@ for i in range(z*2):
     a = [int(x) for x in input().split()]
     sen.append(a)
 
-for i in range(0,z+1,2):
+for i in range(0, z*2, 2):
     AR = False
     BR = False
     CR = False
@@ -19,11 +19,12 @@ for i in range(0,z+1,2):
     if AR == True and BR == True and CR == True:
         print("None")
     else:
-        a = ""
+        a = ''
         if AR == False:
             a += "A"
         if BR == False:
             a += "B"   
         if CR == False:
             a += "C"
-        print(a)    
+        print(a)
+       
